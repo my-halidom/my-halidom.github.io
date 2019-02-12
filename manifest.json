@@ -1,0 +1,20 @@
+{
+	"short_name": "My Halidom",
+	"name": "My Halidom",
+	"icons": [
+	{
+		"src": "/assets/images/icons/halidom_192.png",
+		"type": "image/png",
+		"sizes": "192x192"
+	},
+	{
+		"src": "/assets/images/icons/halidom_512.png",
+		"type": "image/png",
+		"sizes": "512x512"
+	}
+	],
+	"start_url": "/index.html",
+	"display": "fullscreen",
+	"background_color": "#EADEC9",
+	"theme_color": "#CCC3B3"
+}
