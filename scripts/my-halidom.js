@@ -236,6 +236,7 @@ function createRepresentativeDOMElement(item)
 	itemDiv.id = item.id;
 	itemDiv.setAttribute("data-element", item.element.toString());
 	itemDiv.setAttribute("data-owned", (playerInventory.has(item) ? "true" : "false"));
+	itemDiv.setAttribute("data-limited", (LimitedAdventurers.has(item) ? "true" : "false"));
 	
 	//// Disabled for now.
 	// let elementalBackgroundDiv = document.createElement("div");
