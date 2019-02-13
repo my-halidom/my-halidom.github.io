@@ -251,7 +251,7 @@ function createRepresentativeDOMElement(item)
 	}
 	else
 	{
-		itemPortraitDiv.style.backgroundImage = `url("assets/images/adventurers/unknown_character.png")`;
+		itemPortraitDiv.style.backgroundImage = `url("assets/images/adventurers/unknown_adventurer.png")`;
 	}
 	itemDiv.appendChild(itemPortraitDiv);
 	
