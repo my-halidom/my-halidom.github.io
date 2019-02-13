@@ -95,6 +95,9 @@ const Adventurer = Object.freeze(
 	KU_HAI: new AdventurerObject("110315_01", "Ku Hai", Element.WIND, Weapon.SWORD, 4),
 	XIAO_LEI: new AdventurerObject("110316_01", "Xiao Lei", Element.LIGHT, Weapon.WAND, 3),
 	SU_FANG: new AdventurerObject("110314_01", "Su Fang", Element.WIND, Weapon.DAGGER, 4),
+	// VALENTINES_HILDEGARDE: new AdventurerObject("", "💕 Hildegarde", Element.FLAME, Weapon.STAFF, 5),
+	// VALENTINES_EZELITH: new AdventurerObject("", "💕 Ezelith", Element.FLAME, Weapon.BOW, 4),
+	// VALENTINES_ORION: new AdventurerObject("", "💕 Orion", Element.FLAME, Weapon.SWORD, 3),
 });
 
 const Adventurers = Object.values(Adventurer);
@@ -138,6 +141,9 @@ const LimitedAdventurers = new Set(
 	Adventurer.IEYASU,
 	Adventurer.SAZANKA,
 	Adventurer.GALA_SARISSE,
+	// Adventurer.VALENTINES_HILDEGARDE,
+	// Adventurer.VALENTINES_EZELITH,
+	// Adventurer.VALENTINES_ORION,
 ]);
 
 const GachaAdventurers = Adventurers.filter(x => !(StoryAdventurers.has(x) || WelfareAdventurers.has(x)));
