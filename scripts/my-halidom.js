@@ -307,7 +307,7 @@ if (adventurersElement != null && adventurersElement != undefined)
 		adventurersElement.appendChild(rarityGrouping);
 	}
 	
-	for (let adventurer of Adventurers.values())
+	for (let adventurer of Array.from(Adventurers.values()).sort((a, b) => a.weaponType - b.weaponType))
 	{
 		if (options.display.showStoryAdventurers == false && StoryAdventurers.has(adventurer))
 		{

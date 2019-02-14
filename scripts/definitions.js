@@ -5,8 +5,8 @@ const Element =
 	FLAME: { toString: (() => "flame") },
 	WATER: { toString: (() => "water") },
 	WIND: { toString: (() => "wind") },
+	LIGHT: { toString: (() => "light") },
 	SHADOW: { toString: (() => "shadow") },
-	LIGHT: { toString: (() => "light") }
 };
 
 const Weapon =
@@ -60,9 +60,11 @@ class AdventurerObject extends ElementalDragaliaObject
 	{
 		super(id, rarity, element);
 		this._name = name;
+		this._weaponType = weaponType;
 	}
 	
 	get name() { return this._name; }
+	get weaponType() { return this._weaponType; }
 }
 
 class Dragon extends ElementalDragaliaObject
