@@ -100,7 +100,16 @@ const Adventurer = Object.freeze(
 	VALENTINES_ORION: new AdventurerObject("110052_03", "💕 Orion", Element.FLAME, Weapon.SWORD, 3),
 });
 
-const Adventurers = Object.values(Adventurer);
+/**
+ * All adventurers, sorted by their IDs.
+ */
+const Adventurers = Object.values(Adventurer).sort((a, b) =>
+{
+	const aId = parseInt(a.id.split("_").reduce((acc, x) => acc * 100 + x, 0));
+	const bId = parseInt(b.id.split("_").reduce((acc, x) => acc * 100 + x, 0));
+	
+	return aId - bId;
+});
 
 /**
  * Adventurer you get for free by completing the campaign.
