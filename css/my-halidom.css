@@ -68,6 +68,7 @@ img
 	flex: 1 1 auto;  /*grow | shrink | basis */
 	width: 100%;
 	min-width: 0; /* why? see below. */
+	margin-left: 0.2em;
 }
 
 .wyrmite_icon_wrapper img {

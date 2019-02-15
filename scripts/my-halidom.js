@@ -26,47 +26,49 @@ function isFeatured(item)
 	return currentShowcase.featuredItems.has(item);
 }
 
-class Format
+document.createWyrmiteAmountElement = function(initialAmount)
 {
-	static asWyrmiteAmount(n)
-	{
-		return `<span class="wyrmite_cost"><div class="wyrmite_quantity">${n.toLocaleString()}&nbsp;</div><div class="wyrmite_icon_wrapper"><img src="assets/images/game/wyrmite.png" alt="wyrmite"></div></span>`;
-	}
-}
+	var e = document.createElement("span");
+	e.className = "wyrmite_cost";
 
-function generateAnalysis()
+	var amountElement = document.createElement("div");
+	amountElement.className = "wyrmite_quantity";
+	e.appendChild(amountElement);
+	
+	var iconElement = document.createElement("div");
+	iconElement.className = "wyrmite_icon_wrapper";
+	
+	var wyrmiteImageElement = document.createElement("img");
+	wyrmiteImageElement.setAttribute("src", "assets/images/game/wyrmite.png");
+	wyrmiteImageElement.setAttribute("alt", "wyrmite");
+	
+	iconElement.appendChild(wyrmiteImageElement);
+	
+	e.appendChild(iconElement);
+	
+	Object.defineProperty(e, "amount", {
+		get() { return this._amount; },
+		set(newValue) { this._amount = newValue; amountElement.innerText = newValue.toLocaleString(); },
+	});
+	
+	initialAmount = (initialAmount || 0);
+	e.amount = initialAmount;
+	
+	return e;
+};
+
+const newFiveStarWyrmiteCost = document.createWyrmiteAmountElement();
+document.querySelector("#new_five_star_cost .cost").appendChild(newFiveStarWyrmiteCost);
+const newFourStarWyrmiteCost = document.createWyrmiteAmountElement();
+document.querySelector("#new_four_star_cost .cost").appendChild(newFourStarWyrmiteCost);
+
+const newFeaturedFiveStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
+const newFiveStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
+const newFeaturedFourStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
+const newFourOrGreaterStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
+
+(function()
 {
-	const gachaContents = gachaInstance.contents;
-	const gachaContentsOwnedByPlayer = gachaInstance.contents.filter(x => playerInventory.has(x));
-	const gachaContentsNotOwnedByPlayer = gachaInstance.contents.filter(x => !playerInventory.has(x));
-
-	const analysisElement = document.getElementById("analysis");
-	
-	analysisElement.innerHTML = "";
-
-	const fiveStarContents = gachaInstance.contents.filter(item => item.rarity == Rarity.GOLD);
-	const ownedFiveStarContents = fiveStarContents.filter(item => playerInventory.has(item));
-	const unownedFiveStarContents = fiveStarContents.filter(item => !playerInventory.has(item));
-	const unownedFeaturedFiveStarContents = unownedFiveStarContents.filter(item => isFeatured(item));
-
-	const chanceOfNewFiveStar = unownedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfDuplicateFiveStar = ownedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfNewFeaturedFiveStar = unownedFeaturedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-
-	const fourOrGreaterStarContents = gachaInstance.contents.filter(item => item.rarity >= Rarity.SILVER);
-	const ownedFourOrGreaterStarContents = fourOrGreaterStarContents.filter(item => playerInventory.has(item));
-	const unownedFourOrGreaterStarContents = fourOrGreaterStarContents.filter(item => !playerInventory.has(item));
-	const unownedFeaturedFourStarContents = gachaInstance.contents.filter(item => item.rarity == Rarity.SILVER && !playerInventory.has(item) && isFeatured(item));
-
-	const chanceOfNewfourOrGreaterStar = unownedFourOrGreaterStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfDuplicatefourOrGreaterStar = ownedFourOrGreaterStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfNewFeaturedFourStar = unownedFeaturedFourStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	
-	const newFeaturedFiveStarWyrmiteAmount = Math.ceil(1/chanceOfNewFeaturedFiveStar) * WYRMITE_PER_PULL;
-	const newFeaturedFourStarWyrmiteAmount = Math.ceil(1/chanceOfNewFeaturedFourStar) * WYRMITE_PER_PULL;
-	const newFiveStarWyrmiteAmount = Math.ceil(1/chanceOfNewFiveStar) * WYRMITE_PER_PULL;
-	const newFourOrGreaterStarWyrmiteAmount = Math.ceil(1/chanceOfNewfourOrGreaterStar) * WYRMITE_PER_PULL;
-	
 	const fragment = document.createDocumentFragment();
 	var p;
 	
@@ -92,7 +94,7 @@ function generateAnalysis()
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
-	gridElement.innerHTML = `${Format.asWyrmiteAmount(newFeaturedFiveStarWyrmiteAmount)}`;
+	gridElement.appendChild(newFeaturedFiveStarWyrmiteAmountElement);
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
@@ -101,7 +103,7 @@ function generateAnalysis()
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
-	gridElement.innerHTML = `${Format.asWyrmiteAmount(newFiveStarWyrmiteAmount)}`;
+	gridElement.appendChild(newFiveStarWyrmiteAmountElement);
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
@@ -110,7 +112,7 @@ function generateAnalysis()
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
-	gridElement.innerHTML = `${Format.asWyrmiteAmount(newFeaturedFourStarWyrmiteAmount)}`;
+	gridElement.appendChild(newFeaturedFourStarWyrmiteAmountElement);
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
@@ -119,15 +121,51 @@ function generateAnalysis()
 	grid.appendChild(gridElement);
 	
 	gridElement = document.createElement('div');
-	gridElement.innerHTML = `${Format.asWyrmiteAmount(newFourOrGreaterStarWyrmiteAmount)}`;
+	gridElement.appendChild(newFourOrGreaterStarWyrmiteAmountElement);
 	grid.appendChild(gridElement);
 	
 	fragment.appendChild(grid);
 	
+	const analysisElement = document.getElementById("analysis");
 	analysisElement.appendChild(fragment);
+})();
+
+function updateWyrmiteCosts()
+{
+	const gachaContents = gachaInstance.contents;
+	const gachaContentsOwnedByPlayer = gachaInstance.contents.filter(x => playerInventory.has(x));
+	const gachaContentsNotOwnedByPlayer = gachaInstance.contents.filter(x => !playerInventory.has(x));
 	
-	document.querySelector("#new_five_star_cost .cost").innerHTML = Format.asWyrmiteAmount(newFiveStarWyrmiteAmount);
-	document.querySelector("#new_four_star_cost .cost").innerHTML = Format.asWyrmiteAmount(newFourOrGreaterStarWyrmiteAmount);
+	const fiveStarContents = gachaInstance.contents.filter(item => item.rarity == Rarity.GOLD);
+	const ownedFiveStarContents = fiveStarContents.filter(item => playerInventory.has(item));
+	const unownedFiveStarContents = fiveStarContents.filter(item => !playerInventory.has(item));
+	const unownedFeaturedFiveStarContents = unownedFiveStarContents.filter(item => isFeatured(item));
+
+	const chanceOfNewFiveStar = unownedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+	const chanceOfDuplicateFiveStar = ownedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+	const chanceOfNewFeaturedFiveStar = unownedFeaturedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+
+	const fourOrGreaterStarContents = gachaInstance.contents.filter(item => item.rarity >= Rarity.SILVER);
+	const ownedFourOrGreaterStarContents = fourOrGreaterStarContents.filter(item => playerInventory.has(item));
+	const unownedFourOrGreaterStarContents = fourOrGreaterStarContents.filter(item => !playerInventory.has(item));
+	const unownedFeaturedFourStarContents = gachaInstance.contents.filter(item => item.rarity == Rarity.SILVER && !playerInventory.has(item) && isFeatured(item));
+
+	const chanceOfNewfourOrGreaterStar = unownedFourOrGreaterStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+	const chanceOfDuplicatefourOrGreaterStar = ownedFourOrGreaterStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+	const chanceOfNewFeaturedFourStar = unownedFeaturedFourStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+	
+	const newFeaturedFiveStarWyrmiteAmount = Math.ceil(1/chanceOfNewFeaturedFiveStar) * WYRMITE_PER_PULL;
+	const newFeaturedFourStarWyrmiteAmount = Math.ceil(1/chanceOfNewFeaturedFourStar) * WYRMITE_PER_PULL;
+	const newFiveStarWyrmiteAmount = Math.ceil(1/chanceOfNewFiveStar) * WYRMITE_PER_PULL;
+	const newFourOrGreaterStarWyrmiteAmount = Math.ceil(1/chanceOfNewfourOrGreaterStar) * WYRMITE_PER_PULL;
+	
+	newFiveStarWyrmiteCost.amount = newFiveStarWyrmiteAmount;
+	newFourStarWyrmiteCost.amount = newFourOrGreaterStarWyrmiteAmount;
+	
+	newFeaturedFiveStarWyrmiteAmountElement.amount = newFeaturedFiveStarWyrmiteAmount;
+	newFiveStarWyrmiteAmountElement.amount = newFiveStarWyrmiteAmount;
+	newFeaturedFourStarWyrmiteAmountElement.amount = newFeaturedFourStarWyrmiteAmount;
+	newFourOrGreaterStarWyrmiteAmountElement.amount = newFourOrGreaterStarWyrmiteAmount;
 }
 
 const playerInventory = new Inventory();
@@ -201,7 +239,7 @@ function onInventoryChanged()
 {
 	saveInventory();
 	
-	generateAnalysis();
+	updateWyrmiteCosts();
 }
 
 loadInventory();
@@ -285,7 +323,7 @@ function createRepresentativeDOMElement(item)
 		
 		let wrymiteCostDiv = document.createElement("div");
 		wrymiteCostDiv.className = "cost_to_obtain";
-		wrymiteCostDiv.innerHTML = Format.asWyrmiteAmount(Math.ceil(1/estimatedOdds) * WYRMITE_PER_PULL);
+		wrymiteCostDiv.appendChild(document.createWyrmiteAmountElement(Math.ceil(1/estimatedOdds) * WYRMITE_PER_PULL));
 		itemDiv.appendChild(wrymiteCostDiv);
 	}
 	
@@ -346,4 +384,4 @@ if (adventurersElement != null && adventurersElement != undefined)
 	}
 }
 
-generateAnalysis();
+updateWyrmiteCosts();
