@@ -303,7 +303,7 @@ img
 
 .adventurer[data-owned="false"] .portrait
 {
-	filter: contrast(0.5) sepia(0.7) saturate(1) contrast(0.3) brightness(1.5);
+	filter: contrast(0.5) sepia(0.7) contrast(0.3) brightness(1.5);
 	/* border-color: hsla(38, 44%, 20%, 0.5); */
 }
 
