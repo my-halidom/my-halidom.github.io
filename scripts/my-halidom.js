@@ -3,6 +3,8 @@
 const WYRMITE_PER_PULL = 150;
 const BLACK_STAR = "&#x2605;";
 
+const playerInventory = new Inventory();
+
 const currentShowcase = new SummoningShowcase(
 	gachaPool.filter(x => x.rarity == Rarity.BRONZE),
 	gachaPool.filter(x => x.rarity == Rarity.SILVER),
@@ -133,26 +135,40 @@ const newFourOrGreaterStarWyrmiteAmountElement = document.createWyrmiteAmountEle
 function updateWyrmiteCosts()
 {
 	const gachaContents = gachaInstance.contents;
-	const gachaContentsOwnedByPlayer = gachaInstance.contents.filter(x => playerInventory.has(x));
-	const gachaContentsNotOwnedByPlayer = gachaInstance.contents.filter(x => !playerInventory.has(x));
+	const unownedItems = gachaContents.filter(x => playerInventory.has(x) == false);
 	
-	const fiveStarContents = gachaInstance.contents.filter(item => item.rarity == Rarity.GOLD);
-	const ownedFiveStarContents = fiveStarContents.filter(item => playerInventory.has(item));
-	const unownedFiveStarContents = fiveStarContents.filter(item => !playerInventory.has(item));
-	const unownedFeaturedFiveStarContents = unownedFiveStarContents.filter(item => isFeatured(item));
-
-	const chanceOfNewFiveStar = unownedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfDuplicateFiveStar = ownedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfNewFeaturedFiveStar = unownedFeaturedFiveStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-
-	const fourOrGreaterStarContents = gachaInstance.contents.filter(item => item.rarity >= Rarity.SILVER);
-	const ownedFourOrGreaterStarContents = fourOrGreaterStarContents.filter(item => playerInventory.has(item));
-	const unownedFourOrGreaterStarContents = fourOrGreaterStarContents.filter(item => !playerInventory.has(item));
-	const unownedFeaturedFourStarContents = gachaInstance.contents.filter(item => item.rarity == Rarity.SILVER && !playerInventory.has(item) && isFeatured(item));
-
-	const chanceOfNewfourOrGreaterStar = unownedFourOrGreaterStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfDuplicatefourOrGreaterStar = ownedFourOrGreaterStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
-	const chanceOfNewFeaturedFourStar = unownedFeaturedFourStarContents.reduce((acc, x) => acc + gachaInstance.getPercentageChance(x), 0);
+	let chanceOfNewFiveStar = 0.0;
+	let chanceOfNewFeaturedFiveStar = 0.0;
+	let chanceOfNewfourOrGreaterStar = 0.0;
+	let chanceOfNewFeaturedFourStar = 0.0;
+	
+	// This code sure is pretty ugly!
+	for (var item of unownedItems)
+	{
+		const chanceToDrawItem = gachaInstance.getPercentageChance(item);
+		
+		if (item.rarity >= Rarity.SILVER)
+		{
+			chanceOfNewfourOrGreaterStar += chanceToDrawItem;
+			
+			if (item.rarity == Rarity.GOLD)
+			{
+				chanceOfNewFiveStar += chanceToDrawItem;
+			}
+			
+			if (isFeatured(item) == true)
+			{
+				if (item.rarity == Rarity.SILVER)
+				{
+					chanceOfNewFeaturedFourStar += chanceToDrawItem;
+				}
+				else
+				{
+					chanceOfNewFeaturedFiveStar += chanceToDrawItem;
+				}
+			}
+		}
+	}
 	
 	const newFeaturedFiveStarWyrmiteAmount = Math.ceil(1/chanceOfNewFeaturedFiveStar) * WYRMITE_PER_PULL;
 	const newFeaturedFourStarWyrmiteAmount = Math.ceil(1/chanceOfNewFeaturedFourStar) * WYRMITE_PER_PULL;
@@ -167,8 +183,6 @@ function updateWyrmiteCosts()
 	newFeaturedFourStarWyrmiteAmountElement.amount = newFeaturedFourStarWyrmiteAmount;
 	newFourOrGreaterStarWyrmiteAmountElement.amount = newFourOrGreaterStarWyrmiteAmount;
 }
-
-const playerInventory = new Inventory();
 
 function loadInventory()
 {
