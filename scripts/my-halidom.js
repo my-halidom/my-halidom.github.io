@@ -69,6 +69,11 @@ const newFiveStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
 const newFeaturedFourStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
 const newFourOrGreaterStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
 
+function closeModalOverlay()
+{
+	document.getElementById('modal_overlay').style.display = 'none';
+}
+
 (function()
 {
 	const fragment = document.createDocumentFragment();
@@ -129,7 +134,14 @@ const newFourOrGreaterStarWyrmiteAmountElement = document.createWyrmiteAmountEle
 	fragment.appendChild(grid);
 	
 	const analysisElement = document.getElementById("analysis");
-	analysisElement.appendChild(fragment);
+	const textContainer = document.createElement('div');
+	textContainer.appendChild(fragment);
+	const closeButton = document.createElement('button');
+	closeButton.className = "close_button";
+	closeButton.innerText = "Close";
+	closeButton.addEventListener("click", () => closeModalOverlay());
+	analysisElement.appendChild(textContainer);
+	analysisElement.appendChild(closeButton);
 })();
 
 function updateWyrmiteCosts()
