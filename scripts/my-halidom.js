@@ -33,24 +33,25 @@ document.createWyrmiteAmountElement = function(initialAmount)
 	var e = document.createElement("span");
 	e.className = "wyrmite_cost";
 
-	var amountElement = document.createElement("div");
+	var amountElement = document.createElement("span");
 	amountElement.className = "wyrmite_quantity";
 	e.appendChild(amountElement);
 	
-	var iconElement = document.createElement("div");
-	iconElement.className = "wyrmite_icon_wrapper";
+	//var iconElement = document.createElement("div");
+	//iconElement.className = "wyrmite_icon_wrapper";
 	
 	var wyrmiteImageElement = document.createElement("img");
 	wyrmiteImageElement.setAttribute("src", "assets/images/game/wyrmite.png");
 	wyrmiteImageElement.setAttribute("alt", "wyrmite");
 	
-	iconElement.appendChild(wyrmiteImageElement);
+	//iconElement.appendChild(wyrmiteImageElement);
 	
-	e.appendChild(iconElement);
+	//e.appendChild(iconElement);
+	e.appendChild(wyrmiteImageElement);
 	
 	Object.defineProperty(e, "amount", {
 		get() { return this._amount; },
-		set(newValue) { this._amount = newValue; amountElement.innerText = newValue.toLocaleString(); },
+		set(newValue) { this._amount = newValue; amountElement.innerText = newValue.toLocaleString() + " "; },
 	});
 	
 	initialAmount = (initialAmount || 0);
