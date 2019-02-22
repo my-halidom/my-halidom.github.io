@@ -70,9 +70,17 @@ const newFiveStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
 const newFeaturedFourStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
 const newFourOrGreaterStarWyrmiteAmountElement = document.createWyrmiteAmountElement();
 
+function openModalOverlay()
+{
+	document.getElementById('modal_overlay').style.display = 'grid';
+	location.hash = "analysis";
+}
+
 function closeModalOverlay()
 {
 	document.getElementById('modal_overlay').style.display = 'none';
+	location.hash = "";
+	history.replaceState(null, null, " ");
 }
 
 (function()
@@ -410,5 +418,8 @@ if (adventurersElement != null && adventurersElement != undefined)
 		});
 	}
 }
+
+document.getElementById("question_mark_icon").addEventListener("click", () => openModalOverlay());
+document.getElementById("modal_shade").addEventListener("click", () => closeModalOverlay());
 
 updateWyrmiteCosts();
