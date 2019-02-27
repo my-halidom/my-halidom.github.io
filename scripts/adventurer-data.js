@@ -98,6 +98,9 @@ const Adventurer = Object.freeze(
 	VALENTINES_HILDEGARDE: new AdventurerObject("110043_02", "💕 Hildegarde", Element.FLAME, Weapon.STAFF, 5),
 	VALENTINES_EZELITH: new AdventurerObject("110011_02", "💕 Ezelith", Element.FLAME, Weapon.BOW, 4),
 	VALENTINES_ORION: new AdventurerObject("110052_03", "💕 Orion", Element.FLAME, Weapon.SWORD, 3),
+	// ALBERT: new AdventurerObject("", "Albert", Element.LIGHT, Weapon.SWORD, 5),
+	// ODETTA: new AdventurerObject("", "Odetta", Element.LIGHT, Weapon.SWORD, 4),
+	// JEAN: new AdventurerObject("", "Jean", Element.WATER, Weapon.LANCE, 3),
 });
 
 /**
