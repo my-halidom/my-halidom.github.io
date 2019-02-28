@@ -90,7 +90,7 @@ const nonFeaturedThreeStarsPercentage = (33.75 / 100.0) - (fiveStarFudgeFactor *
 // const CURRENT_SHOWCASE_NAME = "Thunder and Splendor";
 // const limitedGachaInclusions = [];
 // const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
-// const featuredItems = [Adventurer.ALBERT, Adventurer.ODETTA];
+// const featuredItems = [Adventurer.ALBERT, Adventurer.ODETTA, Adventurer.JAKOB];
 
 // const fiveStarFudgeFactor = (0.04682263 - 0.04); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
 
