@@ -100,3 +100,17 @@ const featuredFourStarsPercentage = (1.75 / 100.0);
 const nonFeaturedFourStarsPercentage = (3.07 / 100.0);
 const featuredThreeStarsPercentage = (4.0 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (4.0 / 8.0));
 const nonFeaturedThreeStarsPercentage = (29.75 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (29.75 / 72.0));
+
+// const CURRENT_SHOWCASE_NAME = "The Accursed Archives";
+// const limitedGachaInclusions = [];
+// const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
+// const featuredItems = [Adventurer.HEINWALD, Adventurer.CURRAN];
+
+// const fiveStarFudgeFactor = (0.04682263 - 0.04); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
+
+// const featuredFiveStarsPercentage = (0.5 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (0.5 / 2.0));
+// const nonFeaturedFiveStarsPercentage = (0.5 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (0.5 / 2.0));
+// const featuredFourStarsPercentage = (1.75 / 100.0);
+// const nonFeaturedFourStarsPercentage = (3.07 / 100.0);
+// const featuredThreeStarsPercentage = (4.0 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (4.0 / 8.0));
+// const nonFeaturedThreeStarsPercentage = (29.75 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (29.75 / 72.0));
