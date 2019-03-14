@@ -102,8 +102,8 @@ const Adventurer = Object.freeze(
 	ALBERT: new AdventurerObject("110274_01", "Albert", Element.LIGHT, Weapon.SWORD, 5),
 	ODETTA: new AdventurerObject("110301_01", "Odetta", Element.LIGHT, Weapon.SWORD, 4),
 	JAKOB: new AdventurerObject("110058_01", "Jakob", Element.WATER, Weapon.LANCE, 3),
-	// HEINWALD: new AdventurerObject("", "Heinwald", Element.SHADOW, Weapon.STAFF, 5),
-	// CURRAN: new AdventurerObject("", "Curran", Element.SHADOW, Weapon.AXE, 5),
+	HEINWALD: new AdventurerObject("110280_01", "Heinwald", Element.SHADOW, Weapon.STAFF, 5),
+	CURRAN: new AdventurerObject("110281_01", "Curran", Element.SHADOW, Weapon.AXE, 5),
 });
 
 /**
