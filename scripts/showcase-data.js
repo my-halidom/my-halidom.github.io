@@ -115,16 +115,45 @@
 // const featuredThreeStarsPercentage = 0.0;
 // const nonFeaturedThreeStarsPercentage = (33.75 / 100.0) - (fiveStarFudgeFactor * (33.75 / 80.0));
 
-const CURRENT_SHOWCASE_NAME = "Water's Blessing";
+// const CURRENT_SHOWCASE_NAME = "Water's Blessing";
+// const limitedGachaInclusions = [];
+// const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
+// const featuredItems = NonLimitedGachaAdventurers.filter(x => x.element == Element.WATER);
+
+// const fiveStarFudgeFactor = (0.04682263 - 0.04); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
+
+// const featuredFiveStarsPercentage = (1.0 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (1.0 / 2.0));
+// const nonFeaturedFiveStarsPercentage = (0.5 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (0.5 / 2.0));
+// const featuredFourStarsPercentage = (4.0 / 100.0);
+// const nonFeaturedFourStarsPercentage = (3.07 / 100.0);
+// const featuredThreeStarsPercentage = (10.66 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (10.66 / 16.0));
+// const nonFeaturedThreeStarsPercentage = (21.75 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (21.75 / 64.0));
+
+// const CURRENT_SHOWCASE_NAME = "Gala Dragalia";
+// const limitedGachaInclusions = [Adventurer.GALA_SARISSE, Adventurer.GALA_RANZAL];
+// const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
+// const featuredItems = [Adventurer.GALA_RANZAL];
+
+// const fiveStarFudgeFactor = (0.06513 - 0.06); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
+
+// // This math may be off.
+// const featuredFiveStarsPercentage = (0.5 / 100.0) + (fiveStarFudgeFactor * (0.04 / 0.5));
+// const nonFeaturedFiveStarsPercentage = (1.5 / 100.0) + ((fiveStarFudgeFactor * (0.46 / 0.5)) * (1.5 / 5.5));
+// const featuredFourStarsPercentage = 0.0;
+// const nonFeaturedFourStarsPercentage = (4.82 / 100.0);
+// const featuredThreeStarsPercentage = 0.0;
+// const nonFeaturedThreeStarsPercentage = (32.75 / 100.0) - (fiveStarFudgeFactor * (32.75 / 78.0));
+
+const CURRENT_SHOWCASE_NAME = "The Hunt for Harmony";
 const limitedGachaInclusions = [];
 const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
-const featuredItems = NonLimitedGachaAdventurers.filter(x => x.element == Element.WATER);
+const featuredItems = [Adventurer.LARANOA, Adventurer.XANDER, Adventurer.FLEUR];
 
 const fiveStarFudgeFactor = (0.04682263 - 0.04); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
 
 const featuredFiveStarsPercentage = (1.0 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (1.0 / 2.0));
 const nonFeaturedFiveStarsPercentage = (0.5 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (0.5 / 2.0));
-const featuredFourStarsPercentage = (4.0 / 100.0);
+const featuredFourStarsPercentage = (1.75 / 100.0);
 const nonFeaturedFourStarsPercentage = (3.07 / 100.0);
-const featuredThreeStarsPercentage = (10.66 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (10.66 / 16.0));
-const nonFeaturedThreeStarsPercentage = (21.75 / 100.0) - ((fiveStarFudgeFactor / 2.0) * (21.75 / 64.0));
+const featuredThreeStarsPercentage = 0.0;
+const nonFeaturedThreeStarsPercentage = (33.75 / 100.0) - (fiveStarFudgeFactor * (33.75 / 80.0));
