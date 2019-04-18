@@ -107,6 +107,8 @@ const Adventurer = Object.freeze(
 	GALA_RANZAL: new AdventurerObject("100003_07", "Gala Ranzal", Element.WIND, Weapon.SWORD, 5),
 	LARANOA: new AdventurerObject("110317_01", "Laranoa", Element.WATER, Weapon.BOW, 5),
 	FLEUR: new AdventurerObject("110319_01", "Fleur", Element.LIGHT, Weapon.DAGGER, 4),
+	SYLAS: new AdventurerObject("110318_01", "Sylas", Element.WIND, Weapon.LANCE, 5),
+	YUE: new AdventurerObject("110056_01", "Yue", Element.FLAME, Weapon.AXE, 4),
 });
 
 /**
