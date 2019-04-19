@@ -109,6 +109,7 @@ const Adventurer = Object.freeze(
 	FLEUR: new AdventurerObject("110319_01", "Fleur", Element.LIGHT, Weapon.DAGGER, 4),
 	SYLAS: new AdventurerObject("110318_01", "Sylas", Element.WIND, Weapon.LANCE, 5),
 	YUE: new AdventurerObject("110056_01", "Yue", Element.FLAME, Weapon.AXE, 4),
+	ALEX: new AdventurerObject("100005_01", "Alex", Element.SHADOW, Weapon.Dagger, 4),
 });
 
 /**
@@ -123,7 +124,7 @@ const Adventurers = Object.values(Adventurer).sort((a, b) =>
 });
 
 /**
- * Adventurer you get for free by completing the campaign.
+ * Adventurers you get for free by completing the campaign.
  */
 const StoryAdventurers = new Set(
 [
@@ -132,6 +133,7 @@ const StoryAdventurers = new Set(
 	Adventurer.CLEO,
 	Adventurer.RANZAL,
 	Adventurer.LUCA,
+	Adventurer.ALEX,
 ]);
 
 /**
