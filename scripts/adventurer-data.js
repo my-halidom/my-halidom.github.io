@@ -110,6 +110,10 @@ const Adventurer = Object.freeze(
 	SYLAS: new AdventurerObject("110318_01", "Sylas", Element.WIND, Weapon.LANCE, 5),
 	YUE: new AdventurerObject("110056_01", "Yue", Element.FLAME, Weapon.AXE, 4),
 	ALEX: new AdventurerObject("100005_01", "Alex", Element.SHADOW, Weapon.DAGGER, 4),
+	// ALFONSE: new AdventurerObject("", "Alfonse", Element.LIGHT, Weapon.SWORD, 5),
+	// MARTH: new AdventurerObject("", "Marth", Element.LIGHT, Weapon.SWORD, 5),
+	// FJORM: new AdventurerObject("", "Fjorm", Element.WATER, Weapon.SWORD, 5),
+	// VERONICA: new AdventurerObject("", "Veronica", Element.SHADOW, Weapon.SWORD, 5),
 });
 
 /**
@@ -168,6 +172,10 @@ const LimitedAdventurers = new Set(
 	Adventurer.VALENTINES_EZELITH,
 	Adventurer.VALENTINES_ORION,
 	Adventurer.GALA_RANZAL,
+	// Adventurer.ALFONSE,
+	// Adventurer.MARTH,
+	// Adventurer.FJORM,
+	// Adventurer.VERONICA,
 ]);
 
 const GachaAdventurers = Adventurers.filter(x => !(StoryAdventurers.has(x) || WelfareAdventurers.has(x)));
