@@ -172,16 +172,30 @@
 // const featuredThreeStarsPercentage = 0.0;
 // const nonFeaturedThreeStarsPercentage = (33.75 / 100.0) - (fiveStarFudgeFactor * (33.75 / 80.0));
 
-const CURRENT_SHOWCASE_NAME = "Visions of Amity";
-const limitedGachaInclusions = [];
+// const CURRENT_SHOWCASE_NAME = "Visions of Amity";
+// const limitedGachaInclusions = [];
+// const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
+// const featuredItems = [Adventurer.SYLAS, Adventurer.MARIBELLE, Adventurer.YUE];
+
+// const fiveStarFudgeFactor = (0.04682263 - 0.04); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
+
+// const featuredFiveStarsPercentage = (1.0 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (1.0 / 1.5));
+// const nonFeaturedFiveStarsPercentage = (0.75 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (0.75 / 2.5));
+// const featuredFourStarsPercentage = (3.5 / 100.0);
+// const nonFeaturedFourStarsPercentage = (3.07 / 100.0);
+// const featuredThreeStarsPercentage = 0.0;
+// const nonFeaturedThreeStarsPercentage = (33.75 / 100.0) - (fiveStarFudgeFactor * (33.75 / 80.0));
+
+const CURRENT_SHOWCASE_NAME = "Lost Heroes";
+const limitedGachaInclusions = [Adventurer.MARTH, Adventurer.FJORM, Adventurer.VERONICA];
 const gachaPool = NonLimitedGachaAdventurers.concat(limitedGachaInclusions);
-const featuredItems = [Adventurer.SYLAS, Adventurer.MARIBELLE, Adventurer.YUE];
+const featuredItems = [Adventurer.MARTH, Adventurer.FJORM, Adventurer.VERONICA];
 
 const fiveStarFudgeFactor = (0.04682263 - 0.04); // Experimentally determined. Accounts for the "pity" mechanic where five-star odds rise as successive non-five-stars are summoned.
 
-const featuredFiveStarsPercentage = (1.0 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (1.0 / 1.5));
-const nonFeaturedFiveStarsPercentage = (0.75 / 100.0) + ((fiveStarFudgeFactor / 2.0) * (0.75 / 2.5));
-const featuredFourStarsPercentage = (3.5 / 100.0);
-const nonFeaturedFourStarsPercentage = (3.07 / 100.0);
+const featuredFiveStarsPercentage = (1.5 / 100.0) + ((fiveStarFudgeFactor * (0.19 / 0.5)) * (1.5 / 1.5));
+const nonFeaturedFiveStarsPercentage = (1.25 / 100.0) + ((fiveStarFudgeFactor * (0.31 / 0.5)) * (1.25 / 2.5));
+const featuredFourStarsPercentage = 0.0;
+const nonFeaturedFourStarsPercentage = (8.55 / 100.0);
 const featuredThreeStarsPercentage = 0.0;
-const nonFeaturedThreeStarsPercentage = (33.75 / 100.0) - (fiveStarFudgeFactor * (33.75 / 80.0));
+const nonFeaturedThreeStarsPercentage = (48.0 / 100.0) - (fiveStarFudgeFactor * (48.0 / 80.0));
