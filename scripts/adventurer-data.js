@@ -114,6 +114,9 @@ const Adventurer = Object.freeze(
 	MARTH: new AdventurerObject("110291_01", "Marth", Element.FLAME, Weapon.SWORD, 5),
 	FJORM: new AdventurerObject("110328_01", "Fjorm", Element.WATER, Weapon.LANCE, 5),
 	VERONICA: new AdventurerObject("110333_01", "Veronica", Element.SHADOW, Weapon.WAND, 5),
+	// BEAUTICIAN_ZARDIN: new AdventurerObject("", "Beautician Zardin", Element.LIGHT, Weapon.BLADE, 5),
+	// YACHIYO: new AdventurerObject("", "Yachiyo", Element.LIGHT, Weapon.BLADE, 4),
+	// NORWIN: new AdventurerObject("", "Norwin", Element.SHADOW, Weapon.BOW, 4),
 });
 
 /**
