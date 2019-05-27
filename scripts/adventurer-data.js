@@ -114,9 +114,10 @@ const Adventurer = Object.freeze(
 	MARTH: new AdventurerObject("110291_01", "Marth", Element.FLAME, Weapon.SWORD, 5),
 	FJORM: new AdventurerObject("110328_01", "Fjorm", Element.WATER, Weapon.LANCE, 5),
 	VERONICA: new AdventurerObject("110333_01", "Veronica", Element.SHADOW, Weapon.WAND, 5),
-	// BEAUTICIAN_ZARDIN: new AdventurerObject("", "Beautician Zardin", Element.LIGHT, Weapon.BLADE, 5),
-	// YACHIYO: new AdventurerObject("", "Yachiyo", Element.LIGHT, Weapon.BLADE, 4),
-	// NORWIN: new AdventurerObject("", "Norwin", Element.SHADOW, Weapon.BOW, 4),
+	BEAUTICIAN_ZARDIN: new AdventurerObject("110015_02", "Beautician Zardin", Element.LIGHT, Weapon.BLADE, 5),
+	YACHIYO: new AdventurerObject("110064_01", "Yachiyo", Element.LIGHT, Weapon.BLADE, 4),
+	NORWIN: new AdventurerObject("110066_01", "Norwin", Element.SHADOW, Weapon.BOW, 4),
+	GALA_MYM: new AdventurerObject("100010_04", "Gala Mym", Element.FLAME, Weapon.LANCE, 5),
 });
 
 /**
@@ -154,6 +155,7 @@ const WelfareAdventurers = new Set(
 	Adventurer.BOTAN,
 	Adventurer.SU_FANG,
 	Adventurer.FELICIA,
+	Adventurer.ALFONSE,
 ]);
 
 /**
@@ -179,6 +181,7 @@ const LimitedAdventurers = new Set(
 	Adventurer.MARTH,
 	Adventurer.FJORM,
 	Adventurer.VERONICA,
+	Adventurer.GALA_MYM,
 ]);
 
 const GachaAdventurers = Adventurers.filter(x => !(StoryAdventurers.has(x) || WelfareAdventurers.has(x)));
